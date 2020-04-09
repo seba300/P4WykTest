@@ -12,9 +12,8 @@ namespace EFCinema
         [Key]
         public int CinemaId { get; set; }
         public string Name { get; set; }
-        public string CinemaAddress { get; set; }
 
-        public virtual RoomModel Room { get; set; }
+        public virtual ICollection<RoomModel> Rooms { get; set; }
         public virtual AddressModel Address { get; set; }
     }
 
@@ -26,8 +25,8 @@ namespace EFCinema
         public string Name { get; set; }
         public int SeatNumbers { get; set; }
 
-        public virtual ICollection<CinemaModel> Cinema { get; set; }
-        public virtual PlaceModel Place { get; set; }
+        public virtual CinemaModel Cinema { get; set; }
+        public virtual ICollection<PlaceModel> Place { get; set; }
     }
 
     [Table("Place")]
@@ -38,8 +37,8 @@ namespace EFCinema
         public string Row { get; set; }
         public int Number { get; set; }
 
-        public virtual ICollection<RoomModel> Room { get; set; }
-        public virtual TicketModel Ticket { get; set; }
+        public virtual RoomModel Room { get; set; }
+        public virtual ICollection<TicketModel> Ticket { get; set; }
 
     }
 
@@ -51,7 +50,7 @@ namespace EFCinema
         public string MovieName { get; set; }
         public DateTime MovieStart { get; set; }
 
-       public virtual TicketModel Ticket { get; set; }
+       public virtual ICollection<TicketModel> Ticket { get; set; }
        
     }
 
@@ -62,15 +61,15 @@ namespace EFCinema
         public int TicketId { get; set; }
         public decimal Price { get; set; }
 
-        public virtual ICollection<PlaceModel> Place { get; set; }
-        public virtual ICollection<SeanceModel> Seance { get; set; }
+        public virtual PlaceModel Place { get; set; }
+        public virtual SeanceModel Seance { get; set; }
     }
 
     [Table("Address")]
     public class AddressModel
     {
         [Key]
-        [ForeignKey("CinemaModel")]
+        [ForeignKey("Cinema")]
         public int CinemaId { get; set; }
         public string City { get; set; }
         public string Street { get; set; }
@@ -97,7 +96,12 @@ namespace EFCinema
     {
         static void Main(string[] args)
         {
+            CinemaContext c1 = new CinemaContext();
+            c1.Cinemas.Add(new CinemaModel { CinemaId = 1, Name = "Multikino" });
+            c1.Addresses.Add(new AddressModel { CinemaId = 1, City = "Warszawa", Street = "BakerStreet", HomeNumber = "12", PhoneNumber = 123131, Email = "adas@asda.pl" });
 
+
+        c1.SaveChanges();
         }
     }
 }

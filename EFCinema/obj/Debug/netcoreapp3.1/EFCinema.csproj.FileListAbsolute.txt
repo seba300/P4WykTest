@@ -32,3 +32,5 @@ C:\Users\Sebastian\source\repos\EFCinema\EFCinema\bin\Debug\netcoreapp3.1\runtim
 C:\Users\Sebastian\source\repos\EFCinema\EFCinema\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Users\Sebastian\source\repos\EFCinema\EFCinema\obj\Debug\netcoreapp3.1\EFCinema.csproj.CoreCompileInputs.cache
 C:\Users\Sebastian\source\repos\EFCinema\EFCinema\obj\Debug\netcoreapp3.1\EFCinema.csproj.CopyComplete
+C:\Users\Sebastian\source\repos\EFCinema\EFCinema\obj\Debug\netcoreapp3.1\EFCinema.Migrations.InitialCreate.resources
+C:\Users\Sebastian\source\repos\EFCinema\EFCinema\obj\Debug\netcoreapp3.1\EFCinema.csproj.GenerateResource.cache
